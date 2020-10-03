@@ -1,0 +1,41 @@
+<div class="buttons">
+    <input type="button" value="Sign Out" (click)="go()" style="float: right;">
+<input type="button" value="Add Task" (click)="add(x)" style="float: right;"></div>
+
+
+<div class="container">
+    
+    <h1 class="text-center"> 
+       Task</h1>
+
+       <div class="scroll">
+
+          <table class="table table-bordered">
+         <tr>
+             <th>Sr.no</th>
+             <th>Checkbox</th>
+             <th>Task Name</th>
+             <th>Description</th>
+             <th>Status</th>
+             <th>Email</th>
+             <th> Action </th>
+         </tr>
+         <tbody>
+            
+               <tr *ngFor="let u of userTask;let i=index">
+                    <td>{{i+1}}</td>
+                   <td> <input type="checkbox"  (change)="checkValue(u.tid)"></td>
+                    <td>{{u.tname}}</td>
+                    <td>{{u.desc}}</td>
+                     <td>{{u.status}}</td>
+                     <td>{{u.email}}</td>
+                      
+                     <td>
+                         <button input type="text" class="btn btn-dark" ><a [routerLink]="['/user',i]">Edit</a></button>&nbsp;
+                         <button input type="text" class="btn btn-danger" (click)="deleteData(i)">Delete</button>
+                     </td>
+                </tr>
+        
+            </tbody>
+         </table>
+</div>

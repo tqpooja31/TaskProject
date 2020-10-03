@@ -1,0 +1,117 @@
+
+<div class="container">
+    <h5 class="text-center py-4">
+
+        <strong>Signup Form</strong>
+    </h5>
+    
+<div class="card-body px-lg-5 pt-0">
+
+    <form id=signup class="mx-auto text-center" [formGroup]="signupForm"> 
+      
+        <div class ="inputs">
+        <div class="row">
+          
+                <input  class = "cust_inp_1" formControlName="firstname" 
+                placeholder="first name" type="firstname" >
+                
+                <div class="alert alert-danger"
+                    *ngIf="signupForm.controls['firstname'].invalid && signupForm.controls['firstname'].touched">
+                    <div *ngIf="signupForm.controls['firstname'].errors.required"> first Name is Required</div>
+                    <div *ngIf="signupForm.controls['firstname'].errors.minlength">Name should be minimum of 3 letters
+                    </div>
+                </div>
+           
+
+            
+                <input formControlName="lastname" placeholder="last name"
+                 type="lastname" >
+                 <div class="alert alert-danger"
+                    *ngIf="signupForm.controls['lastname'].invalid && signupForm.controls['lastname'].touched">
+                    <div *ngIf="signupForm.controls['lastname'].errors.required"> last Name is Required</div>
+                    <div *ngIf="signupForm.controls['lastname'].errors.minlength">Name should be minimum of 3 letters
+                    </div>
+                </div>
+            
+        </div>
+
+        <div class="row">
+            
+            <select class=" select_style" formControlName="gender" >
+                <option selected>select gender</option>
+                <option *ngFor="let g of genders">
+                    {{g.val}}
+                </option>
+            </select>
+    
+         </div>
+         
+       
+        <div class="row">
+            
+                <input formControlName="email" placeholder="email"
+                 type="email" >
+                 <div class="alert alert-danger"
+                 *ngIf="signupForm.controls['email'].invalid && signupForm.controls['email'].touched">
+                 <div *ngIf="signupForm.controls['email'].errors.required">Email is Required</div>
+             </div>
+        
+
+                 <button class="btn btn-success" type="submit" id="submit"  (click)="sendEmailVerification()">Generate OTP</button>
+                 &nbsp; &nbsp;
+         
+          <input type="text" placeholder="OTP" formControlName="otp">
+          <div class="alert alert-danger"
+          *ngIf="signupForm.controls['otp'].invalid && signupForm.controls['otp'].touched">
+          <div *ngIf="signupForm.controls['otp'].errors.required">OTP is Required</div>
+      </div>
+          
+           
+        </div>
+        <br>
+
+        <div class="row">
+            
+    
+            <input formControlName="dob" placeholder="dob"
+             type="date" >
+             <div class="alert alert-danger"
+             *ngIf="signupForm.controls['dob'].invalid && signupForm.controls['dob'].touched">
+             <div *ngIf="signupForm.controls['dob'].errors.required">date of birth is Required</div>
+         </div>
+       
+    </div>
+
+        <div class="row">
+            
+                <input formControlName="password" placeholder="password" 
+                type="password" >
+                <div class="alert alert-danger"
+                *ngIf="signupForm.controls['password'].invalid && signupForm.controls['password'].touched">
+                <div *ngIf="signupForm.controls['password'].errors.required">password is Required</div>
+                <div *ngIf="signupForm.controls['password'].errors.minlength">password should be minimum of 8 letters
+                </div>
+                <div *ngIf="signupForm.controls['password'].errors.pattern">pattern should be match
+                </div>
+            </div>
+        
+               
+            
+                <input formControlName="confirmpassword" placeholder="confirmpassword"
+                 type="password" >
+                 <div class="alert alert-danger"
+                 *ngIf="signupForm.controls['confirmpassword'].invalid && signupForm.controls['confirmpassword'].touched">
+                  <div *ngIf="signupForm.controls['confirmpassword'].errors.required"> confirm password is Required</div>
+                 <div *ngIf="signupForm.controls['confirmpassword'].errors.minlength"> confirm password should be minimum of 8 letters
+                 </div> 
+             </div>
+                 
+                 
+            
+        </div>
+        <button class="btn btn-primary" type="submit" id="submit"  [disabled]="signupForm.invalid" (click)="adduser()">Submit</button>
+
+    </div>
+    </form>
+</div>
+</div>

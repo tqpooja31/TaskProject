@@ -1,0 +1,27 @@
+<body>
+    <div class="container" > 
+          <div class="jumbotron" >
+            <h2 style="text-align:center">Add Task</h2> 
+      <form [formGroup]="taskForm">
+         <div class="form-group">
+           <label>Task Name:</label>
+               <input type= "tname" formControlName="tname" placeholder="task name">
+             
+            </div>
+    
+    
+    <div class="form-group">
+          <label>Description:</label>
+               <textarea type="desc" formControlName="desc" placeholder="description" ></textarea>
+               
+             </div> 
+             <button class="btn btn-primary" type="submit" id="submit"  (click)="addtask()">ADD</button>
+        
+    
+          </form>
+    </div>
+    </div>
+    </body>
+         
+          
+    

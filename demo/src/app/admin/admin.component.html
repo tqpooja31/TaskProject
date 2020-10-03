@@ -1,0 +1,35 @@
+
+  <input type="button" value="Sign Out" (click)="go()" style="float: right;">
+
+<div class="container">
+    
+    <h1 class="text-center"> 
+      Report</h1>
+      <input type="button" value="Report" (click)="report()" style="float: right;">
+       <div class="scroll">
+
+          <table class="table table-bordered">
+            
+         <tr>
+             <th>Sr.no</th>
+             <th>Frist Name</th>
+             <th>Last Name</th>
+             <th>Status</th>
+             <th> Action </th>
+         </tr>
+         <tbody>
+            
+               <tr *ngFor="let a of admin;let i=index">
+                    <td>{{a.sid}}</td>
+                    <td>{{a.firstname}}</td>
+                    <td>{{a.lastname}}</td>
+                    <td>{{a.status}}</td>
+                     <td>
+                         <!-- <button input type="text" class="btn btn-primary"  [ngClass]="{'pending': a.isClicked}" (click)="changeValue(a.sid)">Change Staus</button>&nbsp; -->
+                      <button input type="text" class="btn btn-primary"  (click)="changeValue(a.sid)">Change Staus</button>&nbsp;
+                         </td>
+                </tr>
+            </tbody>
+         </table>
+</div>
+
